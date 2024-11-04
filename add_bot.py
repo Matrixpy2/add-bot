@@ -9,6 +9,7 @@ first_chat=''
 secondchat=''
 userids = []        
 
+#get origin and destination chats for add members
 @app.on_message(filters.command(['firstchat' , 'secondchat']))
 def get_chat_id(c:Client , message:Message):
     global first_chat , secondchat
@@ -33,16 +34,19 @@ def get_chat_id(c:Client , message:Message):
             message.reply_text(f'Error : {e}')
 
 
-        
+    
 @app.on_message(filters.command('help'))
+#A guide to using the bot 
 def help(c:Client , message : Message):
     Text = message.text 
     if Text == '/help':
         message.reply('''list of command:
-1. /firstchat (username) = add first chat for analyze members \n
-2. /secondchat (username) = Add a second chat to drop members into \n
-3. /status = To see the number of members of the first group \n
-4. /addmember = for drop memmber from firstchat to second chat''')
+1. /start = for reset everything \n
+2. /firstchat (username) = add first chat for analyze members \n
+3. /secondchat (username) = Add a second chat to drop members into \n
+4. /status = To see the number of members of the first group(برای شروع فرآیند افزودن اعضا حتما این دستور رو اجرا کنید در غیر اینصورت هیچ عملیاتی انجام نمیشه) \n
+5. /addmember = for drop memmber from firstchat to second chat
+6. /mount = Determine the amount you want to increase''')
 
     
 @app.on_message(filters.command(['status' , 'addmember' ,'start']))
