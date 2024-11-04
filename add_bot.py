@@ -3,8 +3,7 @@ from pyrogram.types import  Message
 import re
 import time
 import random
-app = Client('selfbot', api_id=20425579,
-             api_hash='c56002eaafa90ffd14fffae66b74e2c5')
+app = Client('selfbot', api_id='Your API Id',api_hash='Your API hash') #you can receive your API Id an API hash from https://my.telegram.org/
 
 first_chat=''
 secondchat=''
@@ -50,8 +49,6 @@ def help(c:Client , message : Message):
 def show_members(c:Client , message:Message):
     global userids , first_chat , secondchat , dmount
     if message.text == '/status':
-        
-        
         if first_chat!='' and secondchat!='':
             for member in app.get_chat_members(first_chat):
                 
@@ -68,13 +65,10 @@ def show_members(c:Client , message:Message):
         first_chat=''
         secondchat=''
         userids = []
-        # dmount = None
         message.reply_text('همه چی ریست شد میتونی دوباره گروه اول و دومت رو تعیین کنی')
     if message.text =='/addmember':
             addmember(c , message)
-
-
-    
+      
 @app.on_message(filters.command('mount'))
 def mount(c:Client , message:Message):
         global dmount
@@ -123,11 +117,4 @@ def addmember(c:Client , message:Message):
                 message.reply_text(f'Error adding {userid} to {secondchat} cause : {e}')
                 added_count+=1
                 time.sleep(random.randint(5, 10))
-            
-
-        
-        
-        
-
 app.run()
-
