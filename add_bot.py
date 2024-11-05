@@ -3,7 +3,7 @@ from pyrogram.types import  Message
 import re
 import time
 import random
-app = Client('selfbot', api_id='Your API Id',api_hash='Your API hash') #you can receive your API Id an API hash from https://my.telegram.org/
+app = Client('selfbot', api_id='Your API Id',api_hash='Your API hash') #you can receive your API Id and API hash from https://my.telegram.org/
 
 first_chat=''
 secondchat=''
